@@ -6,8 +6,10 @@
   --hover:#007E8E;
   --accent:#069aad;
   --accent-nav: #56d2e0;
-  --correct: rgb(5, 90, 5);
-  --wrong: rgb(137, 14, 14);
+  --lightgray: rgba(94, 123, 126, 0.4);
+  --lightgray2: rgba(94, 123, 126, 0.1);
+  --correct:rgb(31, 155, 31);
+  --wrong: rgb(163, 13, 13);
 }
 
 *, *:before, *:after {
@@ -31,7 +33,6 @@ body {
   padding: 0.6rem 1.5rem;
   border-radius: 5px;
   border: none;
-  box-shadow: 0 0 4px lightgray;
   letter-spacing: 1px;
   font-size: 15px;
   font-weight: 500;
@@ -42,6 +43,18 @@ body {
 }
 .btn:hover {
   background-color: var(--hover);
+}
+
+.clear-btn {
+  background-color: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  transition: 0.3s ease;
+}
+.clear-btn:hover {
+  background-color: var(--hover);
+  color: white;
+  transition: 0.3s ease;
 }
 
 .home {
@@ -104,6 +117,7 @@ body {
   font-size: 18px;
   font-weight: 500;
   border: 1px solid white;
+  box-shadow: 0 0 4px lightgray;
 }
 .home div.quiz-home .btn:hover {
   background-color: var(--bg);
@@ -155,17 +169,6 @@ div.quiz-guide .buttons {
   flex-direction: row;
   justify-content: space-between;
 }
-div.quiz-guide .buttons .clear-btn {
-  background-color: white;
-  color: var(--accent);
-  border: 2px solid var(--accent);
-  transition: 0.3s ease;
-}
-div.quiz-guide .buttons .clear-btn:hover {
-  background-color: var(--hover);
-  color: white;
-  transition: 0.3s ease;
-}
 
 div.quiz-guide.active {
   opacity: 1;
@@ -184,7 +187,7 @@ div.quiz-guide.active {
 }
 .slide .quiz-box {
   opacity: 0;
-  width: 470px;
+  width: 460px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -194,6 +197,7 @@ div.quiz-guide.active {
   border-radius: 5px;
   box-shadow: 0 0 2px lightgray;
   padding: 1rem 1.5rem;
+  pointer-events: none;
 }
 .slide .quiz-box h2 {
   background: linear-gradient(45deg, transparent, var(--accent), transparent);
@@ -208,22 +212,53 @@ div.quiz-guide.active {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 15px;
+  font-size: 18px;
 }
 .slide .quiz-box .sub-title .score {
   background-color: var(--accent);
   border-radius: 5px;
   padding: 0.5rem;
+  font-size: 16px;
 }
 .slide .quiz-box .questions {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 30px;
+  padding-bottom: 40px;
   border-top: 2px solid var(--accent);
   border-bottom: 2px solid var(--accent);
 }
 .slide .quiz-box .questions .question {
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 600;
+}
+.slide .quiz-box .questions ul {
+  list-style: none;
+}
+.slide .quiz-box .questions ul li {
+  border: 1.5px solid var(--lightgray);
+  border-radius: 5px;
+  margin-top: 0.9rem;
+  padding: 0.7rem;
+  cursor: pointer;
+}
+.slide .quiz-box .questions ul li:hover {
+  background-color: var(--lightgray2);
+}
+.slide .quiz-box .questions ul li.correct {
+  color: var(--correct);
+  border: 1.5px solid var(--correct);
+}
+.slide .quiz-box .questions ul li.wrong {
+  color: var(--wrong);
+  border: 1.5px solid var(--wrong);
+}
+.slide .quiz-box .questions ul.disabled li {
+  pointer-events: none;
+}
+.slide .quiz-box .questions ul.disabled li:hover {
+  background-color: transparent;
 }
 .slide .quiz-box .quiz-footer {
+  margin-top: 0.3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -231,6 +266,69 @@ div.quiz-guide.active {
 }
 .slide .quiz-box .quiz-footer .btn {
   box-shadow: none;
+}
+.slide .quiz-box .quiz-footer .btn.disabled {
+  border: 1px solid var(--lightgray);
+  background-color: var(--lightgray2);
+  color: var(--lightgray);
+  pointer-events: none;
+  transition: 0.4s ease;
+}
+.slide .quiz-result {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  pointer-events: none;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 2rem 5rem;
+}
+.slide .quiz-result h2 {
+  font-size: 45px;
+}
+.slide .quiz-result .conic-gradient {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  height: 230px;
+  width: 230px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) 220deg, var(--lightgray2) 0);
+  position: relative;
+}
+.slide .quiz-result .conic-gradient .inner-gradient {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 190px;
+  width: 190px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 600;
+}
+.slide .quiz-result .final-score {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.slide .quiz-result .buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.slide .quiz-result .buttons .btn {
+  padding: 0.6rem 1rem;
 }
 
 .slide.active {
@@ -242,6 +340,18 @@ div.quiz-guide.active {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
   transition-delay: 0.7s;
+  pointer-events: auto;
+}
+.slide.active .quiz-box.inactive {
+  opacity: 0;
+  transition: 0.5s ease;
+  pointer-events: none;
+}
+.slide.active .quiz-result.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-delay: 0.3s;
+  pointer-events: auto;
 }
 
 .credits {
