@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 :root{
     --bg: #121319; 
     --bg2: #0E1017; 
@@ -22,22 +22,24 @@
 body{
     background: url(./5425357.jpg) no-repeat, linear-gradient(#121319, transparent) no-repeat;
     background-blend-mode: multiply;
-    background-size:100vw;
-    object-fit:cover;
-    font-family: 'Inter', sans-serif;
+    width:100%; 
+    height:100%;
+    // background-size: 100vw;
+    // object-fit:cover;
+    // font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: white;
-    
-    // height:100vh;
 }
 .btn{
     margin-top:1rem;
     padding: 0.6rem 1.5rem;
     border-radius: 5px;
     border:none;
+    font-family:'Poppins', sans-serif;
     // box-shadow: 0 0 4px lightgray;
     letter-spacing: 1px;
     font-size:15px;
-    font-weight:500;
+    font-weight:600;
     background-color: var(--accent);
     color:white;
     cursor: pointer;
@@ -58,7 +60,7 @@ body{
     }
 }
 .home{
-    transition: 0.3s ease;
+    transition: 0.4s ease;
     header{
         margin: 1.5rem 10%;
         display:flex;
@@ -114,7 +116,7 @@ body{
             padding: 1rem 3rem;
             margin-top: 2rem;
             font-size:18px;
-            font-weight:500;
+            // font-weight:500;
             border: 1px solid white; 
             box-shadow: 0 0 4px lightgray;
             &:hover{
@@ -260,9 +262,11 @@ div.quiz-guide.active{
         .quiz-footer{
             margin-top:0.3rem;
             display:flex;
+            flex-direction:row;
             justify-content: space-between;
             align-items: center;
-            font-weight:500;
+            font-size:15px;
+            font-weight:600;
             .btn{
                 box-shadow: none;
             }
@@ -341,7 +345,8 @@ div.quiz-guide.active{
     .quiz-box{
         opacity:1; 
         transform:translate(-50%, -50%) scale(1);
-        transition-delay:0.7s;
+        transition:0.5s ease;
+        transition-delay:0.4s;
         pointer-events: auto;
     }
     .quiz-box.inactive{
@@ -352,6 +357,7 @@ div.quiz-guide.active{
     .quiz-result.active{
         opacity:1; 
         transform:translate(-50%, -50%) scale(1);
+        transition:0.4s ease;
         transition-delay:0.3s;
         pointer-events: auto;
     }
