@@ -1,18 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+//TODO: filter:blur pt background
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 :root{
     --bg: #121319; 
-    --bg2: #0E1017; 
-    --accent2: #004959;
+    --accent:#069aad;    
     --hover:#007E8E;
-    --accent:#069aad;
     --accent-nav: #56d2e0;
     --lightgray: rgba(94, 123, 126, 0.4);
     --lightgray2: rgba(94, 123, 126, 0.1);
     --correct:rgb(31, 155, 31);
     --wrong: rgb(163, 13, 13); 
-    
-  
 }
 *, *:before, *:after{
     margin:0; 
@@ -24,9 +21,6 @@ body{
     background-blend-mode: multiply;
     width:100%; 
     height:100%;
-    // background-size: 100vw;
-    // object-fit:cover;
-    // font-family: 'Inter', sans-serif;
     font-family: 'Poppins', sans-serif;
     color: white;
 }
@@ -36,7 +30,6 @@ body{
     border-radius: 5px;
     border:none;
     font-family:'Poppins', sans-serif;
-    // box-shadow: 0 0 4px lightgray;
     letter-spacing: 1px;
     font-size:15px;
     font-weight:600;
@@ -67,7 +60,6 @@ body{
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        
         .logo{
             font-size:30px;
             font-weight:bold;
@@ -116,7 +108,6 @@ body{
             padding: 1rem 3rem;
             margin-top: 2rem;
             font-size:18px;
-            // font-weight:500;
             border: 1px solid white; 
             box-shadow: 0 0 4px lightgray;
             &:hover{
@@ -130,7 +121,6 @@ body{
     &::before{
         content:"";
         background-color: rgba(0, 0, 0, 0.6);
-        // TODO: filter:blur(10px);
         top:0;
         left:0;
         width:100%;
@@ -147,12 +137,11 @@ div.quiz-guide{
     padding:1rem;
     color:black;
     position:absolute;
-    
     top:50%;
     left:50%;
-    transform: translate(-50%, -50%)  scale(0.9);;
+    transform: translate(-50%, -50%)  scale(0.9);
     opacity:0;
-    transition: 0.3s ease;
+    transition: 0.4s ease;
     h2{
         color:var(--accent);
         font-size:40px;
@@ -256,7 +245,6 @@ div.quiz-guide.active{
                         background-color: transparent;
                     }
                 }
-                
             }
         }
         .quiz-footer{
@@ -335,7 +323,6 @@ div.quiz-guide.active{
                 padding:0.6rem 1rem;
             }
         }
-        //transition-delay:0.3s;
     }
 }
 .slide.active{

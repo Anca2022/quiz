@@ -1,11 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 :root {
   --bg: #121319;
-  --bg2: #0E1017;
-  --accent2: #004959;
-  --hover:#007E8E;
   --accent:#069aad;
+  --hover:#007E8E;
   --accent-nav: #56d2e0;
   --lightgray: rgba(94, 123, 126, 0.4);
   --lightgray2: rgba(94, 123, 126, 0.1);
@@ -149,7 +146,7 @@ div.quiz-guide {
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
-  transition: 0.3s ease;
+  transition: 0.4s ease;
 }
 div.quiz-guide h2 {
   color: var(--accent);
