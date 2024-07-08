@@ -101,7 +101,7 @@ function goToResult(){
         if(start==scorePercentage) { clearInterval(intervalId);}   
     }, 30);
 
-    finalScoreSpan.textContent= `Your score: ${score} out of 5`;
+    finalScoreSpan.textContent= `You scored ${score} out of 5`;
 
     quizBox.classList.add('inactive');
     quizResult.classList.add('active');
